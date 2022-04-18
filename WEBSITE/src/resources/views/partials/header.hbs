@@ -1,0 +1,157 @@
+
+{{!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="/">SugarStore</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              SugarVipProNo1
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="/products/create">Đăng sản phẩm</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/me/stored/products">Sản phẩm của tôi</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/me/cart/products">Đơn mua của tôi</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Đăng xuất</a>
+            </div>
+          </li>    
+      </div>
+    </div>
+</nav> --}}
+
+<link rel="stylesheet" href="/css/app.css">
+<link rel="stylesheet" href="/font/fontawesome-free-5.15.4-web/css/all.min.css">
+  <header class="header">
+            <div class="gird">
+                <!-- HEADER NAVBAR -->
+                <nav class="header__navbar">
+                    <ul class="header__navbar-list">
+                        <li class="header__navbar-item header__navbar-item--separate">Vào cửa hàng trên ứng dụng</li>
+                        <li class="header__navbar-item">
+                            <span class="header__navbar-title-no-click">Kết nối</span>
+                            <a href="" class="header__navbar-icon-link">
+                                <i class="header__navbar-icon fab fa-facebook"></i>
+                            </a>
+                            <a href="" class="header__navbar-icon-link">
+                                <i class="header__navbar-icon fab fa-instagram"></i>
+                            </a>
+                        </li>
+                    </ul>
+                
+                    <a class="header__navbar-name" href="/">SUGARSTORE</a>
+
+                    <ul class="header__navbar-list">
+                        <li class="header__navbar-item header__navbar-item--has-notify">
+                            <a href="" class="header__navbar-item-link">
+                                <i class="header__navbar-icon far fa-bell"></i>
+                                Thông báo
+                            </a>
+                            <div class="header__notify">
+                                <header class="header__notify-header">
+                                    <h3>Thông báo mới nhận</h3>
+                                </header>    
+                                <footer class="header__notify-footer">
+                                    <a href="" class="header__notify-footer-btn">Xem tất cả</a>
+                                </footer>
+                            </div>
+                        </li>
+                        <li class="header__navbar-item">
+                            <a href="" class="header__navbar-item-link">
+                                <i class="header__navbar-icon far fa-question-circle"></i>
+                                Trợ giúp
+                            </a>
+                        </li>
+                        <!-- <li class="header__navbar-item header__navbar-item--strong header__navbar-item--separate">Dang ky</li>
+                        <li class="header__navbar-item header__navbar-item--strong">Dang nhap</li> -->
+                        <li class="header__navbar-item header__navbar-user">
+                            <img src="/img/logoavt.png" alt="" class="header__navbar-user-img">
+                            <span class="header__navbar-user-name">User Management</span>
+                            
+                            <ul class="header__navbar-user-menu">
+                                {{#if login}}
+                                <li class="header__navbar-user-item">
+                                    <a href="/users/profile">Tài khoản của tôi</a>
+                                </li>
+                                <li class="header__navbar-user-item">
+                                    <a href="/products/create">Đăng sản phẩm</a>
+                                </li>
+                                <li class="header__navbar-user-item">
+                                    <a href="/me/stored/products">Sản phẩm của tôi</a>
+                                </li>
+                                <li class="header__navbar-user-item">
+                                    <a href="#">Đơn hàng của tôi</a>
+                                </li>
+                                <li class="header__navbar-user-item header__navbar-user-item-separate">
+                                    <a href="/users/logout">Đăng xuất</a>
+                                </li>
+                                {{ else }}
+                                <li class="header__navbar-user-item">
+                                    <a href="/users/signup">Đăng ký</a>
+                                </li>
+                                <li class="header__navbar-user-item">
+                                    <a href="/users/signin">Đăng nhập</a>
+                                </li>
+            
+                                {{/if}}
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+
+                <!-- Header with search -->
+                <div class="header-with-search">
+                    <div class="header__logo">
+                        <a href="/" class="header__logo-link">
+                            <img class="header__logo-img" src="/img/logo.png">
+                        </a>
+                    </div>
+
+                    
+                    <form action="/search" method="GET" class="header__search">
+                        <div class="header__search">
+                            <div class="header__search-input-wrap">
+                                <input type="text" name="q" class="header__search-input" placeholder="Nhập tên sản phẩm cần tìm">
+                            </div>
+                            <button type="submit" value="Search" class="header__search-btn">
+                                <i class="header__search-btn-icon fas fa-search"></i>
+                            </button>
+                        </div>
+
+                    </form>
+                    
+                    
+
+
+
+                    <!-- Cart layout -->
+                    <div class="header__cart">
+                        <div class="header__cart-wrap">
+                            <a href="carts/shopping-cart">
+                                <i class="header__cart-icon fas fa-shopping-cart"></i>
+                                <p>Shopping Cart</p>
+                                
+                                <span class="header__cart-notify">{{session.cart.totalQty}}</span>
+        
+                            </a>    
+                        </div>
+                    </div>                
+            </div>
+    </header>         
+                 
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,29 @@
+<div class="gird">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <h1>Đăng ký</h1>
+            {{#if hashErrors}}
+                <div class="alert alert-danger">
+                        {{#each messages}}
+                            <p>{{this}}</p>
+                        {{/each}}
+                </div>
+            {{/if}}
+            <form action="/users/signup" method="post">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text" id="email" name="email" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" class="form-control">
+                </div>
+                <a href="/users/signin">Đã có tài khoản</a>
+                <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+                <button type="submit" class="btn btn-primary">Đăng ký</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+

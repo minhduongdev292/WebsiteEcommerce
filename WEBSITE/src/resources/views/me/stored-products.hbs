@@ -1,0 +1,125 @@
+<div class="gird">
+    <div class="product__store">
+            <p class="product__store-title">Sản phẩm của tôi</p>
+        <a class="product__store-trash" href="/me/trash/products">Thùng rác ({{deletedCount}})</a>
+    
+        <div class="header__search">
+            <div class="header__search-input-wrap">
+                <input type="text" id="myInput" onkeyup="myFunction()" class="header__search-input" placeholder="Nhập tên sản phẩm cần tìm">
+            </div>
+            <button type="submit" value="Search" class="header__search-btn">
+                <i class="header__search-btn-icon fas fa-search"></i>
+            </button>
+        </div>
+
+        <table id="myTable" class="table mt-4">
+            <thead>
+                <tr>
+                    <th scope="col">STT</th>
+                    <th scope="col">Tên sản phẩm</th>
+                    <th scope="col">Thông số</th>
+                    <th scope="col">Đơn giá</th>
+                    <th scope="col" colspan="4">Thời gian tạo</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each products}}
+                <tr>
+                    <th scope="row">{{sum @index 1}}</th>
+                    <td>{{this.name}}</td>
+                    <td>{{this.description}}</td>
+                    <td>{{this.pricecurrent}}</td>
+                    <td>{{this.createdAt}}</td>
+                    <td>
+                        <a href="/products/{{this._id}}/edit" class="btn btn-link">Sửa</a>
+                    </td>
+                    <td>
+                        <a href="" class="btn btn-link" data-toggle="modal" data-id="{{this._id}}" data-target="#delete-product-modal">Xóa</a>
+                    </td>
+                </tr>
+
+                {{else}}
+                <tr>
+                    <td colspan="5" class="text-center">
+                        Bạn chưa có sản phẩm nào.
+                        <a href="/products/create">Đăng sản phẩm</a>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+
+{{!-- Confirm delete product --}}
+    <div id="delete-product-modal" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Xóa sản phẩm?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Bạn chắc chắn muốn xóa sản phẩm vip pro này?</p>
+                </div>
+                <div class="modal-footer">
+                    <button id="btn-delete-product" type="button" class="btn btn-danger">Xóa bỏ</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{!-- Delete form --}}
+
+<form name="delete-product-form" method="POST"></form>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        
+        var productId;
+        var deleteForm = document.forms['delete-product-form'];
+        var btnDeleteProduct = document.getElementById('btn-delete-product');
+
+        //When dialog confirm clicked
+        $('#delete-product-modal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget); 
+            productId = button.data('id');
+        });
+
+        //When delete product btn clicked
+        btnDeleteProduct.onclick = function(){
+            deleteForm.action = '/products/' + productId + '?_method=DELETE';
+            deleteForm.submit();
+        }
+    });
+    
+</script>
+
+<script>
+
+function myFunction() {
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[0]; //tim theo ten
+        //td = tr[i].getElementsByTagName("td")[1]; //tim theo thong so
+        //td = tr[i].getElementsByTagName("td")[2]; //tim theo don gia
+        if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+        }       
+    }
+}
+
+</script>

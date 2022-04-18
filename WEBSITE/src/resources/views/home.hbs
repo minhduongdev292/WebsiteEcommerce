@@ -1,0 +1,177 @@
+{{!-- <div class="mt-4">
+    <div class="row">
+
+        {{#each products}}
+
+        <div class="col-sm-6 col-lg-4">
+            <div class="card">
+                <a href="/products/{{this.slug}}">
+                    <img class="card-img-top" src="{{this.image}}" alt="{{this.name}}">
+                </a>
+                <div class="card-body">
+                    <a href="/products/{{this.slug}}">
+                        <h5 class="card-title">{{this.name}}</h5>
+                    </a>
+                    <p class="card-text">{{this.description}}</p>
+                    <div class="card-item__price">
+                                            <span class="card-item__price-old">{{this.priceold}}</span>
+                                            <span class="card-item__price-current">{{this.pricecurrent}}</span>
+                                        </div>
+                    <a href="#" class="btn btn-primary">Mua hàng dùm em đi mấy anh </a>
+                </div>
+            </div>
+        </div>
+
+        {{/each}}
+
+    
+       
+    </div>
+</div> --}}
+    
+    <div class="gird">
+        <div class="gird__row app__content">
+            <div class="gird__column-2">
+               <nav class="categogy">
+                    <h3 class="category__heading">
+                        <i class="category__heading-icon fas fa-list"></i>
+                        Danh mục
+                    </h3>
+            
+                    <ul class="category-list">
+                        <li class="category-item category-item--active">
+                            <a href="#" class="category-item__link">LAPTOP MSI</a>
+                        </li>
+                        <li class="category-item">
+                            <a href="#" class="category-item__link">LAPTOP ASUS</a>
+                        </li>
+                        <li class="category-item">
+                            <a href="#" class="category-item__link">LAPTOP ACER</a>
+                        </li>
+                        <li class="category-item">
+                            <a href="#" class="category-item__link">LAPTOP DELL</a>
+                        </li>
+                        <li class="category-item">
+                            <a href="#" class="category-item__link">LAPTOP HP</a>
+                        </li>
+                        <li class="category-item">
+                            <a href="#" class="category-item__link">LAPTOP LENOVO</a>
+                        </li>
+                        <li class="category-item">
+                            <a href="#" class="category-item__link">LAPTOP APPLE</a>
+                        </li>                    
+                        <li class="category-item">
+                            <a href="#" class="category-item__link">LAPTOP LG</a>
+                        </li>
+                        
+                    </ul>
+               </nav>        
+            </div>
+            
+            <div class="gird__column-10">
+                <div class="home-filter">
+                    <span class="home-filter__label">Sắp xếp theo</span>
+                    <button class="home-filter__btn btn">Phổ biến</button>
+                    <button class="home-filter__btn btn">Mới nhất</button>
+                    <button class="home-filter__btn btn">Bán chạy</button>
+
+                    <div class="select-input">
+                        <span class="select-input__label">Giá</span>
+                        <i class="select-input__icon fas fa-angle-down"></i>
+
+                        <!-- List options -->
+                        <ul class="select-input__list">
+                            <li class="select-input__item">
+                                <a href="#" class="select-input__link">Giá: thấp đến cao</a>
+                            </li>
+                            <li class="select-input__item">
+                                <a href="#" class="select-input__link">Giá: cao đến thấp</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="home-filter__page">
+                        <span class="home-filter__page-num">
+                            <span class="home-filter__page-current">1</span>/18
+                        </span>
+
+                        <div class="home-filter__page-control">
+                            <a href="" class="home-filter__page-btn home-filter__page-btn-disabled">
+                                <i class="home-filter__page-icon fas fa-angle-left"></i>
+                            </a>
+                            <a href="" class="home-filter__page-btn">
+                                <i class="home-filter__page-icon fas fa-angle-right"></i>
+                            </a>        
+                        </div>
+                    </div>
+                </div>
+
+                <div class="home-product">
+                    <div class="gird__row">
+                    <!-- Product item -->
+                            {{#each products}}
+                        <div class="gird__column-2-4">
+                            <a class="home-product-item" href="/products/{{this.slug}}">
+                                <div class="home-product-item__img">
+                                    <img src="{{this.image}}" alt="{{this.name}}" class="home-product-item__img">
+                                </div>
+                                <a href="/products/{{this.slug}}">
+                                <h4 class="home-product-item__name">{{this.name}}</h4>
+                                </a>
+                                <p class="home-product-item__description">{{this.description}}</p>
+                                <div class="home-product-item__price">
+                                    <span class="home-product-item__price-old">{{this.priceold}}</span>
+                                    <span class="home-product-item__price-current">{{this.pricecurrent}}</span>
+                                </div>
+
+                            </a>
+                        </div>
+                            {{/each}}
+                    </div>
+                </div>
+
+                <ul class="pagination home-product__pagination">
+                            <li class="pagination-item">
+                                <a href="" class="pagination-item__link">
+                                    <i class="pagination-item__icon fas fa-angle-left"></i>
+                                </a>
+                            </li>
+
+                            <li class="pagination-item pagination-item--active">
+                                <a href="" class="pagination-item__link">1</a>            
+                            </li>
+
+                            <li class="pagination-item">
+                                <a href="" class="pagination-item__link">2</a>            
+                            </li>
+
+                            <li class="pagination-item">
+                                <a href="" class="pagination-item__link">3</a>            
+                            </li>
+
+                            <li class="pagination-item">
+                                <a href="" class="pagination-item__link">4</a>            
+                            </li>
+
+                            <li class="pagination-item">
+                                <a href="" class="pagination-item__link">...</a>            
+                            </li>
+
+                            <li class="pagination-item">
+                                <a href="" class="pagination-item__link">18</a>            
+                            </li>
+
+                            <li class="pagination-item">
+                                <a href="" class="pagination-item__link">
+                                    <i class="pagination-item__icon fas fa-angle-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+            </div>
+
+
+           
+        </div>
+    </div>
+
+

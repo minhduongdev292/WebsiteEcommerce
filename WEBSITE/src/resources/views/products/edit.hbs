@@ -1,0 +1,61 @@
+{{!-- <div class="mt-4">
+    <h3>Cập nhật sản phẩm</h3>
+
+    <form class="mt-4" method="POST" action="/products/{{product._id}}?_method=PUT">
+        <div class="form-group">
+            <label for="name">Tên sản phẩm</label>
+            <input type="text" class="form-control" value="{{product.name}}"id="name" name="name">            
+        </div>
+        <div class="form-group">
+            <label for="description">Mô tả sản phẩm</label>
+            <input type="text" class="form-control" value="{{product.description}}"id="description" name="description">
+        </div>
+        <div class="form-group">
+            <label for="image">Hình ảnh sản phẩm</label>
+            <input type="text" class="form-control" value="{{product.image}}"id="image" name="image">            
+        </div>
+        <div class="form-group">
+            <label for="pricecurrent">Giá hiện hành</label>
+            <input type="text" class="form-control" value="{{product.pricecurrent}}"id="pricecurrent" name="pricecurrent">            
+        </div>
+        <div class="form-group">
+            <label for="priceold">Giá mặc định</label>
+            <input type="text" class="form-control" value="{{product.priceold}}"id="priceold" name="priceold">            
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Lưu lại</button>
+    </form>
+
+</div --}}
+
+<div class="gird">
+    <div class="product__create">
+        <a class="product__create-post">Cập nhật sản phẩm</a>
+
+    <form method="POST" action="/products/{{product._id}}?_method=PUT">
+        <div class="product__create-name">
+            <label for="name">Tên sản phẩm</label>
+            <input type="text" class="form-control" value="{{product.name}}" id="name" name="name">            
+        </div>
+        <div class="product__create-description">
+            <label for="description">Mô tả sản phẩm</label>
+            <input type="text" class="form-control"  value="{{product.description}}" id="description" name="description">
+        </div>
+        <div class="product__create-img">
+            <label for="image">Hình ảnh sản phẩm</label>
+            <input type="text" class="form-control" value="{{product.image}}" id="image" name="image">            
+        </div>
+        <div class="product__create-pricecurrent">
+            <label for="pricecurrent">Giá hiện hành</label>
+            <input type="text" class="form-control" value="{{product.pricecurrent}}" id="pricecurrent" name="pricecurrent">            
+        </div>
+        <div class="product__create-priceold">
+            <label for="priceold">Giá mặc định</label>
+            <input type="text" class="form-control" value="{{product.priceold}}" id="priceold" name="priceold">            
+        </div>
+        <div class="product__create-additem">
+            <button type="submit" class="btn btn-primary">Lưu lại</button>
+        </div>
+    </form>
+    </div>
+</div>
